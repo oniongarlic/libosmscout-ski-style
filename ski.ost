@@ -83,15 +83,36 @@ GRADES
   }
 
 TYPES
+  // Ski areas
+  TYPE landuse_winter_sports = NODE AREA ("landuse"=="winter_sports") OPTIONS INDEX_LOC
+
+  // Ski lifts
+  TYPE aerialway_cable_car = WAY ("aerialway"=="cable_car") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC
+  TYPE aerialway_mixed = WAY ("aerialway"=="mixed_lift") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC
+  TYPE aerialway_gondola = WAY ("aerialway"=="gondola") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC
+  TYPE aerialway_chair_lift = WAY ("aerialway"=="chair_lift") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC
+  TYPE aerialway_tbar = WAY ("aerialway"=="t-bar") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC
+  TYPE aerialway_jbar = WAY ("aerialway"=="j-bar") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC
+  TYPE aerialway_station = NODE ("aerialway"=="station") OPTIONS INDEX_LOC INDEX_POI
+
+  // Ski pists
+  TYPE piste_downhill = WAY AREA ("piste:type"=="downhill") OPTIONS ROUTE[FOOT] INDEX_LOC
+  TYPE piste_nordic = WAY ("piste:type"=="nordic") OPTIONS ROUTE[FOOT] INDEX_LOC
+  TYPE piste_skitour = WAY AREA ("piste:type"=="skitour") OPTIONS ROUTE[FOOT] INDEX_LOC
+  TYPE piste_sled = WAY ("piste:type"=="sled") OPTIONS ROUTE[FOOT] INDEX_LOC
+  TYPE piste_hike = WAY ("piste:type"=="hike") OPTIONS ROUTE[FOOT] INDEX_LOC
+  TYPE piste_sleigh = WAY ("piste:type"=="sleigh") OPTIONS ROUTE[FOOT] INDEX_LOC
+  TYPE piste_ice_skate = WAY ("piste:type"=="ice_skate") OPTIONS ROUTE[FOOT] INDEX_LOC
+  TYPE piste_snow_park = AREA ("piste:type"=="snow_park") OPTIONS INDEX_LOC
+  TYPE piste_playground = WAY ("piste:type"=="playground") OPTIONS ROUTE[FOOT] INDEX_LOC INDEX_POI
+  TYPE piste_ski_jump = WAY ("piste:type"=="ski_jump") OPTIONS ROUTE[FOOT] INDEX_LOC
+  // TYPE piste_halfpipe = WAY ("piste:type"=="") OPTIONS ROUTE[FOOT] INDEX_LOC
+
   // Motorways and motorways-like (only for cars)
-  TYPE highway_motorway = WAY ("highway"=="motorway")
-       OPTIONS ROUTE[CAR] INDEX_LOC OPTIMIZE_LOW_ZOOM
-  TYPE highway_motorway_trunk = WAY ("highway"=="trunk" AND EXISTS "motorroad" AND !("motorroad" IN ["no","false","0"]))
-       OPTIONS ROUTE[CAR] INDEX_LOC OPTIMIZE_LOW_ZOOM
-  TYPE highway_motorway_primary = WAY ("highway"=="primary" AND EXISTS "motorroad" AND !("motorroad" IN ["no","false","0"]))
-       OPTIONS ROUTE[CAR] INDEX_LOC OPTIMIZE_LOW_ZOOM
-  TYPE highway_motorway_link = WAY ("highway"=="motorway_link")
-       OPTIONS ROUTE[CAR] INDEX_LOC OPTIMIZE_LOW_ZOOM
+  TYPE highway_motorway = WAY ("highway"=="motorway") OPTIONS ROUTE[CAR] INDEX_LOC OPTIMIZE_LOW_ZOOM
+  TYPE highway_motorway_trunk = WAY ("highway"=="trunk" AND EXISTS "motorroad" AND !("motorroad" IN ["no","false","0"])) OPTIONS ROUTE[CAR] INDEX_LOC OPTIMIZE_LOW_ZOOM
+  TYPE highway_motorway_primary = WAY ("highway"=="primary" AND EXISTS "motorroad" AND !("motorroad" IN ["no","false","0"])) OPTIONS ROUTE[CAR] INDEX_LOC OPTIMIZE_LOW_ZOOM
+  TYPE highway_motorway_link = WAY ("highway"=="motorway_link") OPTIONS ROUTE[CAR] INDEX_LOC OPTIMIZE_LOW_ZOOM
   
   // Other roads mainly for cars
   TYPE highway_trunk = WAY ("highway"=="trunk") OPTIONS ROUTE[FOOT BICYCLE CAR] INDEX_LOC OPTIMIZE_LOW_ZOOM
@@ -159,14 +180,6 @@ TYPES
   TYPE railway_level_crossing = NODE ("railway"=="level_crossing")
   TYPE railway_subway_entrance = NODE ("railway"=="subway_entrance")
   TYPE railway_turntable = NODE AREA ("railway"=="turntable")
-
-  TYPE aerialway_cable_car = WAY ("aerialway"=="cable_car") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC OPTIMIZE_LOW_ZOOM
-  TYPE aerialway_mixed = WAY ("aerialway"=="mixed_lift") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC OPTIMIZE_LOW_ZOOM
-  TYPE aerialway_gondola = WAY ("aerialway"=="gondola") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC OPTIMIZE_LOW_ZOOM
-  TYPE aerialway_chair_lift = WAY ("aerialway"=="chair_lift") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC OPTIMIZE_LOW_ZOOM
-  TYPE aerialway_tbar = WAY ("aerialway"=="t-bar") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC OPTIMIZE_LOW_ZOOM
-  TYPE aerialway_jbar = WAY ("aerialway"=="j-bar") OPTIONS ROUTE[FOOT BICYCLE] INDEX_LOC OPTIMIZE_LOW_ZOOM
-  TYPE aerialway_station = NODE ("aerialway"=="station")
 
   TYPE route_ferry = WAY ("route"=="ferry") OPTIONS OPTIMIZE_LOW_ZOOM IGNORESEALAND
 
