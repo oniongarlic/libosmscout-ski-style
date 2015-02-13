@@ -1,1 +1,5 @@
-Ski map styling and indexing settings for libosmscout
+Winter sports specific ski map styling and indexing settings for libosmscout
+
+Index parsing settings for pist specific geo tags, like aerialway and pist:type
+
+See http://wiki.openstreetmap.org/wiki/Winter_sports for details on tags that can be used
