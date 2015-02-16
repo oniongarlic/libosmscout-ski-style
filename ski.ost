@@ -154,6 +154,12 @@ TYPES
   TYPE aerialway_drag_lift = WAY ("aerialway"=="drag_lift") 
 	{Name, Ref}
 	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_platter = WAY ("aerialway"=="platter") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_rope_tow= WAY ("aerialway"=="rope_tow") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
   TYPE aerialway_magic_carpet = WAY ("aerialway"=="magic_carpet") 
 	{Name, Ref}
 	PATH[FOOT BICYCLE] LOCATION
@@ -163,6 +169,7 @@ TYPES
   TYPE aerialway_station = NODE ("aerialway"=="station") 
 	{Name, Ref}
 	POI
+  TYPE aerialway_pylon = NODE ("aerialway"=="pylon") 
 
   // Ski pists
   TYPE piste_downhill_novice = WAY AREA ("piste:type"=="downhill" AND "piste:difficulty"=="novice") 
