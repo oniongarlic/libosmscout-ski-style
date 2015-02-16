@@ -266,7 +266,7 @@ CONST
 
   COLOR waterColor                 = #9acffd;
   COLOR landColor                  = #f1eee9;
-  COLOR unknownColor               = @waterColor;
+  COLOR unknownColor               = @landColor;
 
 /*
   COLOR seaColor              = #c4dff6;
@@ -337,6 +337,8 @@ CONST
   COLOR pisteExtremeColor          = #608090; // 
 
   COLOR pisteNordicColor           = #0db51d; // Green
+
+  COLOR winterSportsColor          = #e1ded9;
 
   // Travel
   COLOR onewayArrowColor           = #00000028;
@@ -513,24 +515,25 @@ SYMBOL speed_camera
  [MAG continent-] {
    [TYPE aerialway_cable_car] {
      [SIZE 20m 0.45mm:4px<] {
-       WAY#outline { color: darken(@aerialwayColor,0.4); width: 20m; displayWidth: 0.5mm; priority: 2; joinCap: butt; }
-       WAY { color: @aerialwayColor; width: 20m;}
+       WAY#outline { color: @aerialwayColor; width: 20m; displayWidth: 0.5mm; priority: 2; joinCap: butt; }
+       WAY { color: @aerialwayColor; dash: 3,3; cap: butt; gapColor: #ffffff; width: 20m;}
      }
-     [SIZE 20m <0.45mm:4px] WAY { color: lighten(@aerialwayColor,0.3); displayWidth: 0.45mm;}
+     [SIZE 20m <0.45mm:4px]
+	WAY { color: @aerialwayColor; dash: 3,3; displayWidth: 0.45mm;}
    }
    [TYPE aerialway_chair_lift, aerialway_gondola, aerialway_mixed] {
      [SIZE 20m 0.45mm:3px<] {
-       WAY#outline { color: darken(@aerialwayColor,0.4); width: 20m; displayWidth: 0.45mm; priority: 2; joinCap: butt; }
-       WAY { color: @aerialwayColor; width: 20m;}
+       WAY#outline { color: @aerialwayColor; width: 20m; displayWidth: 0.45mm; priority: 2; joinCap: butt; }
+       WAY { color: @aerialwayColor; dash: 4,2; width: 20m;}
      }
-     [SIZE 20m <0.45mm:4px] WAY { color: lighten(@aerialwayColor,0.3); displayWidth: 0.45mm;}
+     [SIZE 20m <0.45mm:4px] WAY { color: @aerialwayColor; dash: 3; displayWidth: 0.45mm;}
    }
    [TYPE aerialway_tbar, aerialway_jbar, aerialway_drag_lift] {
      [SIZE 10m 0.3mm:3px<] {
-       WAY#outline { color: darken(@motorwayColor,0.4); width: 10m; displayWidth: 0.4mm; priority: 2; joinCap: butt; }
-       WAY { color: @aerialwayColor; width: 10m;}
+       WAY#outline { color: @aerialwayColor; width: 10m; displayWidth: 0.4mm; priority: 2; joinCap: butt; }
+       WAY { color: @aerialwayColor; dash: 4,2; width: 10m;}
      }
-     [SIZE 10m <0.3mm:3px] WAY { color: lighten(@aerialwayColor,0.3); displayWidth: 0.3mm;}
+     [SIZE 10m <0.3mm:3px] WAY { color: @aerialwayColor; dash: 1; displayWidth: 0.3mm;}
    }
  }
 
@@ -541,18 +544,13 @@ SYMBOL speed_camera
    [TYPE piste_downhill_freeride] NODE.TEXT { label: name; style: emphasize; color: @peakLabelColor; priority: @labelPrioPeak; }
  }
 
- [MAG cityOver-] {
-   [TYPE aerialway_chair_lift, aerialway_gondola, aerialway_mixed, aerialway_cable_car, aerialway_tbar, aerialway_jbar]
-     WAY.TEXT { label: ref; size: 1.2; }
- }
-
  [MAG close-] {
-   [TYPE piste_downhill_easy, piste_downhill_novice, piste_downhill_advanced]
-	WAY.TEXT { label: name; size: 1.6; } 
+   [TYPE piste_downhill_novice, piste_downhill_easy, piste_downhill_intermediate, piste_downhill_advanced, piste_downhill_expert, piste_downhill_freeride]
+	WAY.TEXT { label: name; size: 1.6; color: #303030; } 
  }
  [MAG veryClose-] {
-   [TYPE piste_downhill_easy, piste_downhill_novice, piste_downhill_advanced]
-	WAY.TEXT { label: name; size: 2.4; }
+   [TYPE piste_downhill_novice, piste_downhill_easy, piste_downhill_intermediate, piste_downhill_advanced, piste_downhill_expert, piste_downhill_freeride]
+	WAY.TEXT { label: name; size: 2.4; color: #303030; }
  }
 
  [MAG close-] {
@@ -564,7 +562,6 @@ SYMBOL speed_camera
    [TYPE aerialway_chair_lift, aerialway_gondola, aerialway_mixed, aerialway_cable_car, aerialway_tbar, aerialway_jbar]
 	WAY.SHIELD { label: ref; color: #ffffff; backgroundColor: #809bc0; borderColor: #ffffff; priority: 20; size: 4.0; }
  }
-
 
  [MAG cityOver-] {
    [TYPE aerialway_chair_lift, aerialway_gondola, aerialway_mixed, aerialway_cable_car, aerialway_tbar, aerialway_jbar]
@@ -1202,7 +1199,8 @@ SYMBOL speed_camera
  // Landuse
  //
 
- [MAG state-] {
+ [MAG continent-] {
+   [TYPE landuse_winter_sports] AREA { color: @winterSportsColor; }
    [TYPE landuse_commercial] AREA { color: @commercialColor; }
    [TYPE landuse_basin] AREA { color: @waterColor; borderColor: #887b7b; borderWidth: 0.1mm; }
    [TYPE landuse_brownfield] AREA { color: @brownFieldColor; }
