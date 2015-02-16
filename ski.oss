@@ -322,20 +322,21 @@ CONST
   COLOR buildingLabelColor         = darken(@buildingColor, 0.5);
 
   // Lifts
-  COLOR aerialwayColor             = #404040;
+  COLOR aerialwayColor             = #403030;
   COLOR aerialwayStationColor      = #ef4646;
+  COLOR aerialwayPylonColor        = #101010;
 
   // Pistes
-  COLOR pisteColor                 = #a6fea6;
-  COLOR pisteNoviceColor           = #86fe86;
-  COLOR pisteEasyColor             = #8686fe;
-  COLOR pisteIntermediateColor     = #fe8686;
-  COLOR pisteAdvancedColor         = #101010;
-  COLOR pisteExpertColor           = #fdac45;
-  COLOR pisteFreerideColor         = #fefe86;
-  COLOR pisteExtremeColor          = #608090;
+  COLOR pisteColor                 = #a6fea6; // Light green
+  COLOR pisteNoviceColor           = #86fe86; // Green
+  COLOR pisteEasyColor             = #1c07e5; // Blue
+  COLOR pisteIntermediateColor     = #fe8686; // Red
+  COLOR pisteAdvancedColor         = #101010; // Black
+  COLOR pisteExpertColor           = #fdac45; // Orange
+  COLOR pisteFreerideColor         = #fefe86; // Yellow
+  COLOR pisteExtremeColor          = #608090; // 
 
-  COLOR pisteNordicColor           = #90ea94;
+  COLOR pisteNordicColor           = #0db51d; // Green
 
   // Travel
   COLOR onewayArrowColor           = #00000028;
