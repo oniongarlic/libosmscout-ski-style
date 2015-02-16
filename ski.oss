@@ -330,10 +330,10 @@ CONST
   COLOR pisteColor                 = #a6fea6; // Light green
   COLOR pisteNoviceColor           = #86fe86; // Green
   COLOR pisteEasyColor             = #1c07e5; // Blue
-  COLOR pisteIntermediateColor     = #fe8686; // Red
-  COLOR pisteAdvancedColor         = #101010; // Black
-  COLOR pisteExpertColor           = #fdac45; // Orange
-  COLOR pisteFreerideColor         = #fefe86; // Yellow
+  COLOR pisteIntermediateColor     = #f40e0e; // Red
+  COLOR pisteAdvancedColor         = #000000; // Black
+  COLOR pisteExpertColor           = #faa510; // Orange
+  COLOR pisteFreerideColor         = #faf710; // Yellow
   COLOR pisteExtremeColor          = #608090; // 
 
   COLOR pisteNordicColor           = #0db51d; // Green
