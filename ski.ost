@@ -131,30 +131,85 @@ TYPES
   //
 
   // Ski area
-  TYPE landuse_winter_sports = NODE AREA ("landuse"=="winter_sports") OPTIONS POI
+  TYPE landuse_winter_sports = NODE AREA ("landuse"=="winter_sports") 
+	{Name, Ref}
+	POI
 
   // Ski lifts
-  TYPE aerialway_cable_car = WAY ("aerialway"=="cable_car") OPTIONS PATH[FOOT BICYCLE] LOCATION
-  TYPE aerialway_mixed = WAY ("aerialway"=="mixed_lift") OPTIONS PATH[FOOT BICYCLE] LOCATION
-  TYPE aerialway_gondola = WAY ("aerialway"=="gondola") OPTIONS PATH[FOOT BICYCLE] LOCATION
-  TYPE aerialway_chair_lift = WAY ("aerialway"=="chair_lift") OPTIONS PATH[FOOT BICYCLE] LOCATION
-  TYPE aerialway_tbar = WAY ("aerialway"=="t-bar") OPTIONS PATH[FOOT BICYCLE] LOCATION
-  TYPE aerialway_jbar = WAY ("aerialway"=="j-bar") OPTIONS PATH[FOOT BICYCLE] LOCATION
-  TYPE aerialway_station = NODE ("aerialway"=="station") OPTIONS LOCATION INDEX_POI
+  TYPE aerialway_cable_car = WAY ("aerialway"=="cable_car") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_mixed = WAY ("aerialway"=="mixed_lift") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_gondola = WAY ("aerialway"=="gondola") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_chair_lift = WAY ("aerialway"=="chair_lift") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_tbar = WAY ("aerialway"=="t-bar") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_drag_lift = WAY ("aerialway"=="drag_lift") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_magic_carpet = WAY ("aerialway"=="magic_carpet") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_jbar = WAY ("aerialway"=="j-bar") 
+	{Name, Ref}
+	PATH[FOOT BICYCLE] LOCATION
+  TYPE aerialway_station = NODE ("aerialway"=="station") 
+	{Name, Ref}
+	POI
 
   // Ski pists
-  TYPE piste_downhill = WAY AREA ("piste:type"=="downhill") OPTIONS PATH[FOOT] LOCATION
-  TYPE piste_nordic = WAY ("piste:type"=="nordic") OPTIONS PATH[FOOT] LOCATION
-  TYPE piste_skitour = WAY AREA ("piste:type"=="skitour") OPTIONS PATH[FOOT] LOCATION
-  TYPE piste_sled = WAY ("piste:type"=="sled") OPTIONS PATH[FOOT] LOCATION
-  TYPE piste_hike = WAY ("piste:type"=="hike") OPTIONS PATH[FOOT] LOCATION
-  TYPE piste_sleigh = WAY ("piste:type"=="sleigh") OPTIONS PATH[FOOT] LOCATION
-  TYPE piste_ice_skate = WAY ("piste:type"=="ice_skate") OPTIONS PATH[FOOT] LOCATION
-  TYPE piste_snow_park = AREA ("piste:type"=="snow_park") OPTIONS LOCATION
-  TYPE piste_playground = WAY ("piste:type"=="playground") OPTIONS PATH[FOOT] LOCATION POI
-  TYPE piste_ski_jump = WAY ("piste:type"=="ski_jump") OPTIONS PATH[FOOT] LOCATION
-  // TYPE piste_halfpipe = WAY ("piste:type"=="") OPTIONS PATH[FOOT] LOCATION
+  TYPE piste_downhill_novice = WAY AREA ("piste:type"=="downhill" AND "piste:difficulty"=="novice") 
+	{Name, Ref}
+	PATH[FOOT] LOCATION
+  TYPE piste_downhill_easy = WAY AREA ("piste:type"=="downhill" AND "piste:difficulty"=="easy") 
+	{Name, Ref}
+	PATH[FOOT] LOCATION
+  TYPE piste_downhill_intermediate = WAY AREA ("piste:type"=="downhill" AND "piste:difficulty"=="intermediate") 
+	{Name, Ref}
+	PATH[FOOT] LOCATION
+  TYPE piste_downhill_advanced = WAY AREA ("piste:type"=="downhill" AND "piste:difficulty"=="advanced") 
+	{Name, Ref}
+	PATH[FOOT] LOCATION
+  TYPE piste_downhill_expert = WAY AREA ("piste:type"=="downhill" AND "piste:difficulty"=="expert") 
+	{Name, Ref}
+	PATH[FOOT] LOCATION
+  TYPE piste_downhill_freeride = NODE WAY AREA ("piste:type"=="downhill" AND "piste:difficulty"=="freeride") 
+	{Name, Ref}
+	PATH[FOOT] LOCATION
 
+  TYPE piste_downhill = WAY AREA ("piste:type"=="downhill" AND !("piste:difficulty" IN ["novice","easy", "intermediate", "advanced","expert", "freeride"])) 
+	{Name, Ref}
+	PATH[FOOT] LOCATION
+
+
+
+  TYPE piste_nordic = WAY ("piste:type"=="nordic") 
+	{Name, Ref}
+	PATH[FOOT] LOCATION
+  TYPE piste_skitour = WAY AREA ("piste:type"=="skitour") 
+	{Name, Ref}
+	 PATH[FOOT] LOCATION
+  TYPE piste_sled = WAY ("piste:type"=="sled") 
+ 	PATH[FOOT] LOCATION
+  TYPE piste_hike = WAY ("piste:type"=="hike") 
+	 PATH[FOOT] LOCATION
+  TYPE piste_sleigh = WAY ("piste:type"=="sleigh") 
+	 PATH[FOOT] LOCATION
+  TYPE piste_ice_skate = WAY ("piste:type"=="ice_skate") 
+	 PATH[FOOT] LOCATION
+  TYPE piste_snow_park = AREA ("piste:type"=="snow_park") 
+	 LOCATION
+  TYPE piste_playground = WAY ("piste:type"=="playground") 
+	 PATH[FOOT] POI
+  TYPE piste_ski_jump = WAY ("piste:type"=="ski_jump") 
+	 PATH[FOOT] LOCATION
 
   //
   // Motorways and motorways-like (only for cars)
